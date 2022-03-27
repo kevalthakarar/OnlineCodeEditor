@@ -1,38 +1,165 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.homePageWrapper {
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.formWrapper {
+  background: rgb(51, 50, 51);
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+footer {
+  position: fixed;
+  bottom: 0;
+}
+
+footer a {
+  color: yellow;
+  text-decoration: none;
+  border-bottom: 2px solid yellow;
+  transition: all 0.3s ease-in-out;
+}
+footer a:hover {
+  color :rgb(25, 179, 25);
+  border-color :rgb(25, 179, 25);
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainLabel {
+  margin-bottom: 20px;
+  margin-top: 0px;
+  text-align: center;
+}
+
+.inputBox {
+  padding: 10px;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  margin-bottom: 15px;
+  background: #eee;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.btn {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.joinBtn ,.leaveBtn ,.copyBtn {
+  border-radius: 10px;
+  background: rgb(88, 212, 88);
+  width: 90px;
+  margin-left: auto;
+}
+
+.joinBtn:hover ,.leaveBtn:hover {
+  background: rgb(41, 184, 41);
+}
+
+.createInfo {
+  margin : 0 auto;
+  margin-top: 20px;
+}
+
+.createBtn {
+  color: yellow;
+  text-decoration: none;
+  border-bottom: 2px solid yellow;
+  transition: all 0.3s ease-in-out;
+}
+
+.createBtn:hover {
+  color :rgb(25, 179, 25);
+  border-color :rgb(25, 179, 25);
+}
+
+.mainWrap {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  height: 100vh;
+}
+
+.aside {
+  background: #6f789e;
+  background: #1c1e29;
+  padding: 15px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.asideInner {
+  flex : 1;
+}
+
+.connected {
+  text-align: center;
+  font-weight: bold;
+  font-size:x-large;
+}
+
+.clientsList {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap : 15px;
+}
+
+.client {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.userName {
+  margin-top: 5px;
+}
+
+.logo {
+  border-bottom: 2px solid #fffb10;
+  padding-bottom: 10px;
+}
+
+.logoImage {
+  height: 150px;
+  width: 300px;
+  max-width: 90%;
+}
+
+.leaveBtn , .copyBtn{
+  margin-top: 20px;
+  width : 100%;
+}
+
+.copyBtn {
+  background : white;
+}
+
+.copyBtn:hover {
+  background: cyan;
+}
+
+.CodeMirror {
+  min-height: calc(100vh - 20px);
+  font-size: 20px;
+  line-height: 1.3;
+  padding-top: 25px;
 }
