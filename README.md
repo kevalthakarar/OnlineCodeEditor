@@ -3,7 +3,7 @@
 # Online Real Time Code Editor and Collaborate With Other 
 
 
-Open This code in Heroku [https://online-code-edi-tor.herokuapp.com/](Editor) to view in your browser
+Open This code in Heroku [Editor](https://online-code-edi-tor.herokuapp.com/) to view in your browser
 
 ## Available Scripts
 
