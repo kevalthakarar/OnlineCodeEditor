@@ -90,7 +90,7 @@ const EditorPage = () => {
       code : codeRef.current
     };
 
-    const res = await fetch('http://localhost:5000/compile',{
+    const res = await fetch('https://online-code-edi-tor.herokuapp.com/compile',{
       headers : {
         'Accept': 'application/json',
         'Content-Type' : 'application/json'
