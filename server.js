@@ -3,10 +3,25 @@ const http = require('http');
 const path = require('path');
 const {Server} = require('socket.io');
 const ACTION = require('./src/Action');
+const cors = require('cors');
+const compiler = require('compilex');
 
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
+
+
+app.use(cors());
+app.use(express.json())
+app.post('/compile' , (req , res) => {
+    var options = {stats : true}; //prints stats on console 
+    compiler.init(options);
+    var envData = { OS : "linux" }; 
+    
+    compiler.compilePython( envData , req.body.code , function(data){
+        res.send(data);
+    })
+})
 
 app.use(express.static('build'));
 app.use((req , res , next) => {
@@ -69,6 +84,8 @@ io.on('connection' , (socket) => {
         socket.leave();
     })
 })
+
+
 
 
 

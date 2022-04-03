@@ -19,6 +19,9 @@ const EditorPage = () => {
   useEffect(()=>{
       const init = async ()=>{
 
+        document.querySelector('.Output').disabled = true;
+
+
         socketRef.current = await initSocket();
 
         socketRef.current.on('connect_error' , (err) => handleErrors(err));
@@ -82,6 +85,30 @@ const EditorPage = () => {
     }
   }
 
+  async function runCode(){
+    const body = {
+      code : codeRef.current
+    };
+
+    const res = await fetch('http://localhost:5000/compile',{
+      headers : {
+        'Accept': 'application/json',
+        'Content-Type' : 'application/json'
+      },
+      method: 'POST',
+      body : JSON.stringify(body)
+    });
+
+    const outs = await res.json();
+    const out = document.querySelector('.Output');
+    if(outs.error){
+      out.textContent = outs.error;
+    }
+    else{
+      out.textContent = outs.output;
+    }
+  }
+
   async function onLeave(){
     reactNavigator('/');
   }
@@ -107,11 +134,15 @@ const EditorPage = () => {
               }
             </div>
           </div>
+          <button className='btn copyBtn' onClick={runCode}>Run</button>
           <button className='btn copyBtn' onClick={copyRoomId}>Copy RoomId</button>
           <button className='btn leaveBtn' onClick={onLeave}>Leave</button>
+          
         </div>
         <div className='editorWrap'>
           <Editor socketRef = {socketRef} roomId = {roomId} onCodeChange = {(code) => {codeRef.current = code;}}/>
+          
+          <textarea className='Output'></textarea>
         </div>
     </div>
   )
